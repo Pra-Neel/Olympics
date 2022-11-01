@@ -1,0 +1,34 @@
+/* navbar */
+a{
+    color: black;
+}
+a:link {
+    color: #000000;
+    text-decoration: none;
+}
+a:visited {
+    color: black;
+}
+a:hover {
+   color: white;
+   text-decoration: underline;
+   font-size: larger;
+   font-style: italic;
+   background-color:green;
+}
+a:active {
+    color: black;
+}
+
+.btn{
+    background-color: green;
+    color: white;
+}
+
+.ul{
+    display: none;
+}
+
+.li{
+    display: none;
+}

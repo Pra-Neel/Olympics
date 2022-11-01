@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+<style>
+  .swiper {
+    width: 600px;
+    height: 300px;
+}
+</style>
+{% endblock css %}
+
+{% block content %}
+
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="background-color: grey;">
+  <div class="carousel-inner">
+    {% for highlight in highlights %}
+    <div class="carousel-item {%if forloop.counter0 == 0%}active{%endif%}">
+      <img class="d-block w-100" src="{{ highlight.image.url }}" alt="{{ highlight.name }}" style="height: 500px; width: auto;">
+      <div class="carousel-caption d-none d-md-block">
+        <h6>{{ highlight.name }}</h6>
+        <p>{{ highlight.description }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<section class="card" style="background-color: #F0FFDD;">
+  <h4 class="text-center my-4">Upcoming Schedule</h4>
+  <!-- Slider main container -->
+  <div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide">
+        <div class="row mb-4">
+          <div class="col-sm-4">
+            <div class="card">
+              <img src="https://thetopflight.com/wp-content/uploads/getty-images/2017/08/673512426-arsenal-v-leicester-city-premier-league.jpg.jpg" class="card-img-top" alt="Fissure in Sandstone"/>
+              <div class="card-body">
+                <h5 class="card-title">Arsenal Vs Leister</h5>
+                <p class="card-text">Arsenal Won against Leister</p>
+                <form method="get" action="/notify" class="form-inline my-2 my-lg-0">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Notify</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+  </div>
+
+</section>
+
+<section class="card" style="background-color: #DDFFEF;">
+  <h4 class="text-center my-4">Recent Games</h4>
+  <!-- Slider main container -->
+  <div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide">
+        <div class="row">
+          <div class="col-sm-4 mb-4">
+            <div class="card">
+              <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top" alt="Fissure in Sandstone"/>
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Watch Later</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+  </div>
+
+</section>
+{% endblock content %}
+
+{% block script %}
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    direction: 'vertical',
+    loop: true,
+
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+    // And if we need scrollbar
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+  });
+  </script>
+{% endblock script %}

@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Custom styles for this template -->
+    {#    <link href="https://getbootstrap.com/docs/5.1/examples/carousel/carousel.css" rel="stylesheet">#}
+    <link href="{% static 'css/carousel.css' %}" rel="stylesheet">
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://cdn.dmcl.biz/media/image/173519/o/Beijing+2022.jpg" class="bi" width="90%" height="90%"/>
+                <div class="container">
+                    <div class="carousel-caption text-start">
+                        <h1>Fun Olympic Game</h1>
+                        {% if request.user.is_authenticated %}
+                            <p><a class="btn btn-lg btn-primary" href="{% url "user:register" %}">Let's have fun</a></p>
+                        {% else %}
+                            <p><a class="btn btn-lg btn-primary" href="{% url "user:register" %}">Register today</a></p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container px-4" id="custom-cards">
+        <h2 class="pb-2 border-bottom">Features</h2>
+
+        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+            <div class="col">
+                <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
+                     style="background-image: url('/media/basketball.avif');">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                        <h2 class="pt-5 mt-5 mb-4 display-10 lh-1 fw-bold">Basketball</h2>
+                        <ul class="d-flex list-unstyled mt-auto">
+                            <li class="me-auto">
+                                <img src="https://olympics.com/images/static/b2p-images/logo_color.svg"/>
+                            </li>
+                            <li class="d-flex align-items-center me-3">
+                                <small>Nepal</small>
+                            </li>
+                            <li class="d-flex align-items-center">
+                                <small>10d</small>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
+                     style="background-image: url('/media/swimmn.avif');">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                        <h2 class="pt-5 mt-5 mb-4 display-10 lh-1 fw-bold">Swimming
+                        </h2>
+                        <ul class="d-flex list-unstyled mt-auto">
+                            <li class="me-auto">
+                                <img src="https://olympics.com/images/static/b2p-images/logo_color.svg"/>
+                            </li>
+                            <li class="d-flex align-items-center me-3">
+
+                                <small>Nepal</small>
+                            </li>
+                            <li class="d-flex align-items-center">
+
+                                <small>3d</small>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
+                     style="background-image: url('/media/Olympics.avif');">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+                        <h2 class="pt-5 mt-5 mb-4 display-10 lh-1 fw-bold">Archery</h2>
+                        <ul class="d-flex list-unstyled mt-auto">
+                            <li class="me-auto">
+                                <img src="https://olympics.com/images/static/b2p-images/logo_color.svg"/>
+                            </li>
+                            <li class="d-flex align-items-center me-3">
+                                <small>Nepal</small>
+                            </li>
+                            <li class="d-flex align-items-center">
+                                <small>8d</small>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
